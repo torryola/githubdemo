@@ -9,43 +9,39 @@
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     </head>
     <body onload="generateDaysMonthsAndYears()">
-        <div class="container mb-sm-6">
-            <h1 style="text-align: center;">Eligibility Check</h1>
-        </div>
-        <div class="d-flex justify-content-center flex-wrap">
-            <div class="row">
-                <form title="Eligibility Checker" action="">
-                    <p class="text-center mb-sm-6">
-                        This is 60+ Eligibility Checker form, please fill the details to check your 
-                        eligibility for Freedom Pass
-                    </p>
-                    <br>
-                    <p style="text-align: center;">
-                        Please enter your date of birth
-                    </p>
-                    <!-- <div class="text-center">
-                        <label for="day">Day</label>
-                        <input type="number" name="day" id="day" min="1" max="12">
-                        <label for="month">Month</label>
-                        <input type="number" name="month" id="month" min="1" max="31">
-                        <label for="year">Yeah</label>
-                    </div> -->
-                    <br>
-                    <div class="container text-center">
-                        <label for="day">Day</label>
-                        <select class="m-2" name="day" id="autoday"></select>
-                        <label for="month">Month</label>
-                        <select class="m-2"  name="month" id="automonth"></select>
-                        <label for="year" id="currYear">Yeah</label>
-                        <select class="m-2"  name="year" id="autoyear"></select>
-                        <button type="button" class="btn btn-primary ml-2" onclick="checkEligibility()">Check</button>
-    
+        <div class="card text-center" style="border: 2px solid skyblue; border-radius: 25px;">
+          <div class="card-header">
+            <h4>Eligibility Checker</h4>
+          </div>
+          <div class="card-body">
+            <h6 class="card-title"> This is 60+ Eligibility Checker form, please fill the details to check your 
+              eligibility for Freedom Pass</h6>
+            <p class="card-text">
+              Please select your date of birth below:
+            </p>
+            <form title="Eligibility Checker" action="">
+              <br>
+                  <div class="form-row">
+                    <div class="form-group col-md-3">
+                      <select class="form-control" name="day" id="autoday"></select>
                     </div>
-                    <br>
-                    <hr>
-                    <div class="container"  id="check-result"></div>
-                </form>
-            </div>
+                    <div class="form-group col-md-3">
+                      <select id="automonth" name="month" class="form-control"></select>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <select class="form-control"  name="year" id="autoyear"></select>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <button type="button" class="form-control btn btn-primary" onclick="checkEligibility()">Check</button>
+                    </div>
+                  </div> 
+            
+              <br>
+          </form>
+          </div>
+          <div class="card-footer text-muted">
+            <div class="container"  id="check-result"></div>
+          </div>
         </div>
         <script src="/js/app.js"></script>
             <!-- JQuery for Boostrap 4 and Lower-->

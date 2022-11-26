@@ -1,5 +1,7 @@
 function checkEligibility(){
     const INVALID_STYLE="border-style: solid; border-color: red;";
+    const VALID_STYLE="border-style: solid; border-color: green;";
+
     let dayElem = document.getElementById("autoday");
     let monthElem = document.getElementById("automonth");
     let yearElem = document.getElementById("autoyear");
@@ -7,10 +9,18 @@ function checkEligibility(){
     let day = parseInt(dayElem.value), month = parseInt(monthElem.value), year = parseInt(yearElem.value);
     if (day <= 0)
     dayElem.style=INVALID_STYLE;
+    else
+    
+    dayElem.style=VALID_STYLE;
     if (month <= 0)
     monthElem.style=INVALID_STYLE;
+    else
+    monthElem.style=VALID_STYLE;
+
     if (year < 1901)
     yearElem.style=INVALID_STYLE;
+    else
+    yearElem.style=VALID_STYLE;
 
    // let dateFormated = year+"/"+(month -=1)+"/"+day
     let dateSelected = new Date(year, month -1, day);
@@ -34,7 +44,7 @@ function generateDaysMonthsAndYears(){
 const defaultOption="<option value=0>0</option>";
 const MIN = 1, DAY_MAX = 31, MONTH_MAX = 12, MIN_YEAR = 1901;
 
-let dayOptions=defaultOption, monthOptions=defaultOption, yearOptions=defaultOption;
+let dayOptions="<option value=0>Day</option>", monthOptions="<option value=0>Month</option>", yearOptions="<option value=0>Yeah</option>";
 
 let currYear = new Date().getFullYear();
 
