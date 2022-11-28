@@ -41,26 +41,56 @@ function checkEligibility(){
 }
 
 function generateDaysMonthsAndYears(){
-const defaultOption="<option value=0>0</option>";
-const MIN = 1, DAY_MAX = 31, MONTH_MAX = 12, MIN_YEAR = 1901;
 
-let dayOptions="<option value=0>Day</option>", monthOptions="<option value=0>Month</option>", yearOptions="<option value=0>Yeah</option>";
+    // Ajax Post Sample 
+    $.ajax({
+        type: "POST",
+        url: "https://reqbin.com/echo/post/json", 
+        data: `{
+            "Id": 78912,
+            "Customer": "Jason Sweet",
+        }`,
+        success: function(res) {
+            console.log(res);
+        }, 
+        dataType: "json"
+    });
+    // End  Ajax Call
 
-let currYear = new Date().getFullYear();
+    fetch('https://reqbin.com/echo/get/json', {
+    method: 'GET',
+    headers: {
+        'Accept': 'application/json',
+    },
+})
+.then(response => response.text())
+.then(txt =>
+{
+    let obj = JSON.parse(txt);
+    document.getElementById("ajaxcall").innerHTML = "" + obj.success;
 
-for (let index = MIN; index <= DAY_MAX; index++) {
-dayOptions += "<option value="+index+">"+index+"</option>";
-}
-document.getElementById("autoday").innerHTML = dayOptions;
+});
 
-for (let index = MIN; index <= MONTH_MAX; index++) {
-monthOptions += "<option value="+index+">"+index+"</option>";
-}
-document.getElementById("automonth").innerHTML = monthOptions;
+    const defaultOption="<option value=0>0</option>";
+    const MIN = 1, DAY_MAX = 31, MONTH_MAX = 12, MIN_YEAR = 1901;
 
-// document.getElementById("currYear").innerHTML = currYear;
-for (let index = MIN_YEAR; index <= currYear; index++) {
-yearOptions += "<option value="+index+">"+index+"</option>";
-}
-document.getElementById("autoyear").innerHTML = yearOptions;
+    let dayOptions="<option value=0>Day</option>", monthOptions="<option value=0>Month</option>", yearOptions="<option value=0>Yeah</option>";
+
+    let currYear = new Date().getFullYear();
+
+    for (let index = MIN; index <= DAY_MAX; index++) {
+    dayOptions += "<option value="+index+">"+index+"</option>";
+    }
+    document.getElementById("autoday").innerHTML = dayOptions;
+
+    for (let index = MIN; index <= MONTH_MAX; index++) {
+    monthOptions += "<option value="+index+">"+index+"</option>";
+    }
+    document.getElementById("automonth").innerHTML = monthOptions;
+
+    // document.getElementById("currYear").innerHTML = currYear;
+    for (let index = MIN_YEAR; index <= currYear; index++) {
+    yearOptions += "<option value="+index+">"+index+"</option>";
+    }
+    document.getElementById("autoyear").innerHTML = yearOptions;
 }
